@@ -8,7 +8,7 @@ Um projetinho para simular operações de banco.
 - Consultar saldo
 - Sair
 
-### Rodar no navegador
+### Navegador
 Abra o `index.html` no navegador e use os botões.
 
 ### Rodar no Node.js
