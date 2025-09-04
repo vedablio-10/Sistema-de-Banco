@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Banco Simples</title>
+</head>
+<body>
+  <h2>Banco Simples</h2>
+  <button onclick="depositar()">Depositar</button>
+  <button onclick="sacar()">Sacar</button>
+  <button onclick="consultar()">Consultar Saldo</button>
+  <button onclick="sair()">Sair</button>
+
+  <p id="msg"></p>
+
+  <script>
+    let saldo = 0
+    let ativo = true
+
+    function depositar(){
+      if(!ativo) return
+      let valor = parseFloat(prompt("Valor para depósito:"))
+      if(valor > 0){
+        saldo += valor
+        document.getElementById("msg").innerText = "Depósito realizado!"
+      }else{
+        document.getElementById("msg").innerText = "Valor inválido."
+      }
+    }
+
+    function sacar(){
+      if(!ativo) return
+      let valor = parseFloat(prompt("Valor para saque:"))
+      if(valor > 0 && valor <= saldo){
+        saldo -= valor
+        document.getElementById("msg").innerText = "Saque realizado!"
+      }else{
+        document.getElementById("msg").innerText = "Saldo insuficiente ou valor inválido."
+      }
+    }
+
+    function consultar(){
+      if(!ativo) return
+      document.getElementById("msg").innerText = "Saldo atual: R$ " + saldo.toFixed(2)
+    }
+
+    function sair(){
+      ativo = false
+      document.getElementById("msg").innerText = "Sistema encerrado."
+    }
+  </script>
+</body>
+</html>
